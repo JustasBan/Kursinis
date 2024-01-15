@@ -80,7 +80,7 @@
 
 % Nustatomas bibliografijos stilius
 \RequirePackage[
-    alldates=iso8601,
+    alldates=iso,
     autolang=other,
     backend=biber,
     sortcites=true,
@@ -90,6 +90,7 @@
     maxalphanames=3,
     maxnames=9,
     minnames=4,
+    seconds=true,
 ]{biblatex}
 \RequirePackage[style=lithuanian]{csquotes}
 

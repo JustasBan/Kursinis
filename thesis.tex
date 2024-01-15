@@ -12,6 +12,7 @@
 \usepackage{listings}
 \usepackage{subfig}
 \usepackage{wrapfig}
+\usepackage[normalem]{ulem}
 
 % Titulinio aprašas (nereikalingus elementus užkomentuoti)
 \university{Vilniaus universitetas}
@@ -145,7 +146,7 @@ Pasak „Linformer“ enkoderio autorių, jų dėmesį sutelkančio mechanizmo s
 \end{figure}
 
 \par
-Pagal „POCFormer" modelio autorius, jų modelis, naudojantis „Linformer“ metodą, turi ženkliai mažesnį parametrų kiekį palyginus su kitais nuotraukų klasifikacijos ir skaitmeninio kalbos apdorojimo modeliais, paremtais transformerių neuroniniais tinklais (žr. lentelę \ref{tab:parametrai1}), o tai labai svarbu mobiliems echoskopijos prietaisams su ribotais resursais ir siekiant sveikatos priežiūros specialistams greitai nustatyti ligą. Be to, šis sprendimas, pasak autorių, leidžia naudotis tranformerių neuroninių tinklų mokymosi su lokaliais ir globaliais kontekstiniais ryšiais savybe, kuri svarbi išlaikant aukštas metrikas nuotraukų klasifikacijoje ir nustatant ligą. \cite{PAY21}
+Pagal „POCFormer" modelio autorius, jų modelis, naudojantis „Linformer“ metodą, turi ženkliai mažesnį parametrų kiekį palyginus su kitais nuotraukų klasifikacijos ir skaitmeninio kalbos apdorojimo modeliais, paremtais transformerių neuroniniais tinklais (žr. lentelę \ref{tab:parametrai_transf}), o tai labai svarbu mobiliems echoskopijos prietaisams su ribotais resursais ir siekiant sveikatos priežiūros specialistams greitai nustatyti ligą. Be to, šis sprendimas, pasak autorių, leidžia naudotis tranformerių neuroninių tinklų mokymosi su lokaliais ir globaliais kontekstiniais ryšiais savybe, kuri svarbi išlaikant aukštas metrikas nuotraukų klasifikacijoje ir nustatant ligą. \cite{PAY21}
 
 \begin{table}[H]\footnotesize
   \centering
@@ -158,10 +159,10 @@ Pagal „POCFormer" modelio autorius, jų modelis, naudojantis „Linformer“ m
     \textbf{„POCFormer" daugelio klasių}  & \( \textbf{6.9} \cdot \textbf{10} ^ \textbf{6} \) \\
     \hline
   \end{tabular}
-  \label{tab:parametrai1}
+  \label{tab:parametrai_transf}
 \end{table}
 
-\subsection{Duomenys}
+\subsection{Duomenys}\label{sec:duomenys1}
 Autoriai teigia, jog modelio treniravimui naudojo atviros prieigos duomenų rinkinį, kuriame saugomi medicinos ekspertų sužymėti plaučių echoskopijos vaizdo įrašai ir nuotraukos iš pacientų\cite{PAY21}. Pasak autorių, treniravimo ir testavimo duomenų rinkiniai buvo sukurti naudojantis plaučių echoskopijos vaizdo įrašų kadrais ir nuotraukomis, kurie suskirstyti į tris kategorijas - COVID-19, bakterinio plaučių uždegimo ir sveikų plaučių. Pagal autorius, kad treniravimo, validacijos ir testavimo duomenų rinkinių klasės būtų subalansuotos, modelio nuostolių funkcijoje buvo panaudotas parametrų balansavimo mechanizmas (žr. formulę \ref{eq:weight_vector}), kuris parametrų vektoriuose klasėms, kurios turi mažiau duomenų, suteikia aukštesnę parametro reikšmę.\cite{PAY21}
 \begin{equation}\label{eq:weight_vector}
     \text{weight\_vector} = \frac{1}{X/\min(X)}
@@ -221,9 +222,9 @@ Straipsnio autorių modeliai efektyviai klasifikuoja COVID-19, bakterinio uždeg
   \begin{tabular}{|l|c|c|c|c|c|} \hline
     Modelis & Preciziškumas & Tikslumas & F1 & Jautrumas & Specifiškumas \\
     \hline
-    COVID-19 ir sveiki plaučiai & 0.87 & 0.91 & 0.92 & 0.83 & 0.97 \\
-    COVID-19 ir bakterinis uždegimas & 0.93 & 0.95 & 0.93 & 1.00 & 0.88 \\
-    Bakterinis uždegimas ir sveiki plaučiai & 0.95 & 0.95 & 0.93 & 1.00 & 0.80 \\
+    COVID-19 ir sveiki plaučiai & 0,87 & 0,91 & 0,92 & 0,83 & 0,97 \\
+    COVID-19 ir bakterinis uždegimas & 0,93 & 0,95 & 0,93 & 1,00 & 0,88 \\
+    Bakterinis uždegimas ir sveiki plaučiai & 0,95 & 0,95 & 0,93 & 1,00 & 0,80 \\
     \hline
   \end{tabular}
   \label{tab:statistikos1}
@@ -233,9 +234,9 @@ Straipsnio autorių modeliai efektyviai klasifikuoja COVID-19, bakterinio uždeg
   \begin{tabular}{|l|c|c|c|c|c|} \hline
      Klasė & Atkūrimas & Preciziškumas & F1 & Specifiškumas & Jautrumas \\
     \hline
-    COVID-19             & 0.96 & 0.90 & 0.93 & 0.98 & 0.90 \\
-    Bakterinis uždegimas & 0.94 & 0.99 & 0.96 & 0.96 & 0.98 \\
-    Sveiki plaučiai      & 0.92 & 0.93 & 0.93 & 0.96 & 0.92 \\
+    COVID-19             & 0,96 & 0,90 & 0,93 & 0,98 & 0,90 \\
+    Bakterinis uždegimas & 0,94 & 0,99 & 0,96 & 0,96 & 0,98 \\
+    Sveiki plaučiai      & 0,92 & 0,93 & 0,93 & 0,96 & 0,92 \\
     \hline
   \end{tabular}
   \label{tab:statistikos2}
@@ -290,15 +291,15 @@ Autoriai teigia, jog neapibrėžtumo sutelkimo metodas pagerina konvoliucinių n
 \hline
 Sutelkimo metodai & MNIST & CIFAR-10 & Fashion-MNIST \\
 \hline
-Maksimalios reikšmės & 88.48\% & 70.73\% & 84.28\% \\
-Vidurkinant & 94.06\% & 74.83\% & 85.90\% \\
-\textbf{Neapibrėžto (autorių)} & \textbf{98.56}\% & \textbf{78.35}\% & \textbf{88.57}\% \\
+Maksimalios reikšmės & 0,88 & 0,7 & 0,84 \\
+Vidurkinant & 0,94 & 0,75 & 0,86 \\
+Neapibrėžto (autorių) & 0,99 & 0,78 & 0,89 \\
 \hline
   \end{tabular}
   \label{tab:fuzzylentele}
 \end{table}
 
-\subsection{Duomenys}
+\subsection{Duomenys}\label{sec:duomenys2}
 Autoriai teigia, jog jų naudoti duomenys sudaro 134 vaizdo įrašai ir 32 nuotraukos ir jie buvo surinkti iš atviros priegos POCUS (liet. echoskopijos paimtos iš priežiūros vietos) duomenų rinkinio. Autorių duomenų rinkinys susidaro iš COVID-19, uždegimo ir sveikų plaučių klasių. Pasak autorių, duomenų rinkinys yra sužymėtas daktarų, o COVID-19 ligos diagnozė yra patikslinta su PGR testu, o plaučių uždegimo nustatymui naudotas tik bakterinis. Duomenys buvo paskirstyti naudojant stratifikuotą atsitiktinį skirstymą, paskyrus 70\% treniravimui, 20\% validacijai ir 10\% testavimui \cite{HASAN2023}. Galiausiai, autoriai išskaido vaizdo įrašų kadrus į nuotraukas (žr. \ref{img:plauciai} paveikslėlį). Galutinis duomenų rinkinys turėjo 1353 COVID-19, 1435 sveikų ir 1517 uždegimo nuotraukų. 
 \begin{figure}[H]
     \centering
@@ -341,11 +342,11 @@ Rezultatams atvaizduoti autoriai naudojo „Matthews correlation coefficient“ 
 \begin{tabular}{|l|c|c|c|}
 \hline
 Modelis      & Tikslumas & MCC   & Koheno kappa \\ \hline
-VGG16      & 0.857  & 0.789 &  0.786            \\
-VGG19      & 0.901  & 0.853 &  0.851            \\
-ResNet34   & 0.904  & 0.856 & 0.855            \\
-ResNet101  & 0.922  & 0.883 & 0.882            \\
-\textbf{Xception}   & \textbf{0.931}  & \textbf{0.896} & \textbf{0.896}           \\ \hline
+VGG16      & 0,86  & 0,79 &  0,79            \\
+VGG19      & 0,90  & 0,85 &  0,85            \\
+ResNet34   & 0,90  & 0,86 & 0,86            \\
+ResNet101  & 0,92  & 0,88 & 0,88            \\
+Xception   & 0,93  & 0,9 & 0,9          \\ \hline
   \end{tabular}
   \label{tab:fuzzyiverciai1}
 \end{table}
@@ -356,11 +357,11 @@ ResNet101  & 0.922  & 0.883 & 0.882            \\
 \begin{tabular}{|l|c|c|c|}
 \hline
 Modelis      & Tikslumas & MCC   & Koheno kappa \\ \hline
-VGG16      & 0.888  & 0.832 &  0.832            \\
-VGG19      & 0.902  & 0.853 &  0.853            \\
-ResNet34   & 0.907  & 0.860 & 0.860           \\
-ResNet101  & 0.935  & 0.9003 & 0.903            \\
-\textbf{Xception}   & \textbf{0.953}  & \textbf{0.929} & \textbf{0.929}           \\ \hline
+VGG16      & 0,89  & 0,83 &  0,83           \\
+VGG19      & 0,90  & 0,85 &  0,85           \\
+ResNet34   & 0,91  & 0,86 & 0,86           \\
+ResNet101  & 0,94  & 0,90 & 0,90           \\
+Xception   & 0,95  & 0,93 & 0,93         \\ \hline
   \end{tabular}
   \label{tab:fuzzyiverciai2}
 \end{table}
@@ -371,11 +372,11 @@ ResNet101  & 0.935  & 0.9003 & 0.903            \\
 \begin{tabular}{|l|c|c|c|}
 \hline
 Modelis      & Tikslumas & MCC   & Koheno kappa \\ \hline
-VGG16      & 0.93281  & 0.89934 &  0.89917            \\
-VGG19      & 0.94695  & 0.92041 &  0.92037            \\
-ResNet34   & 0.91214  & 0.86809 & 0.86808            \\
-ResNet101  & 0.93927  & 0.90884 & 0.90883            \\
-\textbf{Xception}   & \textbf{0.97157}  & \textbf{0.95733} & \textbf{0.95732}           \\ \hline
+VGG16      & 0,93  & 0,9 &  0,9            \\
+VGG19      & 0,95  & 0,92 &  0,92            \\
+ResNet34   & 0,91  & 0,87 & 0,87            \\
+ResNet101  & 0,94  & 0,91 & 0,91            \\
+\textbf{Xception}   & 0,97  & 0,96 & 0,96          \\ \hline
   \end{tabular}
   \label{tab:fuzzyiverciai3}
 \end{table}
@@ -391,7 +392,7 @@ Autoriai pastebi, jog efektyviausias yra Xception tinklas klasifikuojant COVID-1
     \caption{Aukšto lygio autorių VGG architektūra \cite{LSTM}}
     \label{img:lstmvgg}
 \end{figure}
-Autoriai naudojo ilgos trumpos atminties sprendimą, aprašytą \ref{sec:lstm_sub} skyriuje. Pasak autorių, LSTM sprendimas leidžia efektyviai išgauti erdvinę ir laikiną informaciją turinčius duomenis, kurie yra svarbūs vaizdo įrašų klasifikacijos tikslumui. Autoriai pasirinko jų nuomone populiariausias architektūras - VGG, Resnet, Densenet, InceptionV, Inception-ResNetV2, Xception, MobileNet, MobileNetV2 ir EfficientNet ir jas papildė LSTM sluoksniu, dvejais pilnai sujungtų sąryšių sluoksniais su ReLU aktyvacijos funkcija ir išeities sluoksniu su kryžminės entropijos nuostolių funkcija. VGG architektūros pavyzdys iliustruojamas paveikslėlyje \ref{img:lstmvgg}. Autoriai architektūras optimizavo ieškant geriausiai atliekančioms naudojosi hiperparametrų optimizavimo technika (žr. skyrių \ref{sec:apmokymas}) ir vaizdo įrašų kadrų išgavimo konfigūracijomis (žr. skyrių \ref{sec:duomenys}). \cite{LSTM} 
+Autoriai naudojo ilgos trumpos atminties sprendimą, aprašytą \ref{sec:lstm_sub} skyriuje. Pasak autorių, LSTM sprendimas leidžia efektyviai išgauti erdvinę ir laikiną informaciją turinčius duomenis, kurie yra svarbūs vaizdo įrašų klasifikacijos tikslumui. Autoriai pasirinko jų nuomone populiariausias architektūras - VGG, Resnet, Densenet, InceptionV, Inception-ResNetV2, Xception, MobileNet, MobileNetV2 ir EfficientNet ir jas papildė LSTM sluoksniu, dvejais pilnai sujungtų sąryšių sluoksniais su ReLU aktyvacijos funkcija ir išeities sluoksniu su kryžminės entropijos nuostolių funkcija. VGG architektūros pavyzdys iliustruojamas paveikslėlyje \ref{img:lstmvgg}. Autoriai architektūras optimizavo ieškant geriausiai atliekančioms naudojosi hiperparametrų optimizavimo technika (žr. skyrių \ref{sec:apmokymas}) ir vaizdo įrašų kadrų išgavimo konfigūracijomis (žr. skyrių \ref{sec:duomenys3}). \cite{LSTM} 
 \subsubsection{Ilga trumpa atmintis}\label{sec:lstm_sub}
 Pasak straipsnio autorių, ilgos trumpos atminties neuroniniai tinklai gali išspręsti nykstančio gradiento problemą. Tai problema, kuri atsiranda, kai vykstant atgaliniam sklidimui gradientai mažėja iki tiek, kad parametrai mokymosi metu reikšmingai nebe atsinaujina - ilgų sekų, kaip vaizdo įrašų, apdorojimas tampa per sunkus. LSTM naudoja sklendes (angl. „gates“), kurios mokymo metu išmoksta kurias sekas reikia išsaugoti, o kurias atmesti bei ląstelės būseną, saugančią ilgąją atmintį ir paslėptąją būseną, saugančia trumpąją atmintį. LSTM tinklai turi 3 sklendžių tipus: 
 \begin{enumerate}
@@ -400,7 +401,7 @@ Pasak straipsnio autorių, ilgos trumpos atminties neuroniniai tinklai gali išs
     \item Išvesties - reguliuoja išgaunamą naudingą informaciją iš būsenos ląstelės į išvestį. 
 \end{enumerate}
 
-\subsection{Duomenys}\label{sec:duomenys}
+\subsection{Duomenys}\label{sec:duomenys3}
 Autoriai naudojo atviros prieigos POCUS duomenų rinkinio vaizdo įrašus, kurių iš viso susidarė 185. Vaizdo įrašai priklausė COVID-19, bakterinio uždegimo ir sveikų plaučių klasėms, pasiskirstę beveik po lygiai. Pasak autorių, virusinio uždegimo klasė nebuvo naudota, nes duomenų rinkinyje egzistavo tik 3 vaizdo įrašai su šia liga. Autoriai taip pat surinko artefaktus, rastus duomenų rinkinio vaizdo įrašuose, ir teigia, jog COVID-19 echoskopijos vaizdo įrašuose randama daugiausiai B linijų, bakterinio plaučių uždegimo vaizdo įrašuose daugiausia randama konsolidacijų ir sveikuose plaučiuose daugiausia A linijų.
 \par
 Autoriai išgavo kadrus iš vaizdo įrašų naudodami skirtingas konfigūracijas - 5, 10, 15 ir 20 išgautų kadrų iš vieno įrašo. Išgautų kadrų pikselių reikšmes autoriai sumažino daugindami iš \(\frac{1}{255}\). Gautų nuotraukų iš kadrų dydis sumažinamas naudojantis interterpoliacijos algoritmu iki \(224 \cdot 244\) su 3 RGB kanalais, kurie pasak autorių reikalingi suderinamumui su „ImageNet“ modeliais.
@@ -413,11 +414,11 @@ Modelius autoriai treniravo ir optimizavo naudodami savo kompiuterinius resursus
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 Modelis           & LSTM vienetai   & Atsitiktinis praretinimas   & Mokymo žingsnis  & Parametrų kiekis \\ \hline
-Xception-LSTM    &   512               & 0.4                           &  6,55 \cdot \(10^{-4}\)                 & 6,8 mln.           \\
-NASNetLarge-LSTM         & 1024               & 0.5                           &  6,62 \cdot \(10^{-4}\)                & 20,8 mln.            \\
-DenseNet121-LSTM    & 32               & 0.1                           &  9,08 \cdot \(10^{-4}\)                 & 1,2 mln.             \\
-POCOVID-Net-3-LSTM    & 256               & 0.2                           &  8,18 \cdot \(10^{-4}\)                 & 0,8 mln.              \\ 
-DenseNet201-LSTM    & 1024               & 0.2                           &  2,54 \cdot \(10^{-4}\)                  & 12,6 mln.              \\ \hline
+Xception-LSTM    &   512               & 0,4                           &  6,55 \cdot \(10^{-4}\)                 & 6,8 mln.           \\
+NASNetLarge-LSTM         & 1024               & 0,5                           &  6,62 \cdot \(10^{-4}\)                & 20,8 mln.            \\
+DenseNet121-LSTM    & 32               & 0,1                           &  9,08 \cdot \(10^{-4}\)                 & 1,2 mln.             \\
+POCOVID-Net-3-LSTM    & 256               & 0,2                           &  8,18 \cdot \(10^{-4}\)                 & 0,8 mln.              \\ 
+DenseNet201-LSTM    & 1024               & 0,2                           &  2,54 \cdot \(10^{-4}\)                  & 12,6 mln.              \\ \hline
   \end{tabular}
   \label{tab:LSTMparams}
 \end{table}
@@ -458,39 +459,138 @@ Autoriai taip pat pasinaudojo „Grad-CAM“ technika, kad vizualizuotų Xceptio
 
 Apibrendrinant rezultatus, autoriai naudodamiesi hiperparametrų optimizacija ir ilgos trumpos atminties technika adaptavo 68 ištreniruotus modelius klasifikuoti vaizdo įrašus į uždegimo, COVID-19 ir sveikų plaučių klases. Geriausiai pasirodė su modelis paremtas Xception architektūra. Autoriai teigia, kad geriausi modeliai gali būti naudojami plaučių ligoms nustatyti dėl jų gerų metrikų.
 
+\section{Eksperimentinė dalis}
+Kursinio darbo metu buvo atliktas eksperimentas. Jų metu buvo adaptuoti trys jau ištreniruoti modeliai plaučių ligų nustatymui iš plaučių echoskopijos. Šie modeliai adaptuoti 4 klasėms: virusinis plaučių uždegimas, bakterinis plaučių uždegimas, COVID-19 ir sveikų plaučių. Eksperimento tikslas yra patikrinti kaip efektyviai adaptuoti ir jau ištreniruoti modeliai geba išmokti naujų klasių savybes ir patikrinti kaip modelis efektyviai išmoksta klasifikuoti iš duomenų, kurių yra mažai. Pastarasis tikslas yra labai aktualus virusinio uždegimo ligai nustatyti, nes šios ligos echoskopijų kiekis atviros prieigos duomenų rinkiniuose palyginus su kitomis klasėmis yra mažas.
+\subsection{Modeliai}
+Eksperimentui parinkti modeliai, kurie buvo autorių sukurti veikimui turint mažus kompiuterinius resursus, kaip mobilūs įrenginiai. Tai yra aktualu ir plaučių echoskopijos įrenginiams, nes jie irgi yra apriboti resursais. Kiekvienam modeliui įterpiamas sutelkimas vidurkinant, tankusis sluoksnis 4 klasių klasifikacijai.
+\subsubsection{MobileNetV3Small}
+MobileNetV3Small konvoliuciniais neuroniniais tinklais paremtas modelis, pristatytas straipsnyje „Searching for MobileNetV3“ \cite{mobilenet} 2019 metais. Pasak autorių, šio modelio veikimas optimizuojamas naudojant „NetAdapt“ algoritmą ir tinklo architektūros paiešką, taip taupant resursus ir pasiekiant aukštas metrikas. Taip pat šių autorių modelis naudoja skiriamasias konvoliucijas orientuotas į gylį, todėl sumažina parametrų skaičių.
+\subsubsection{NASNetMobile}
+NASNetMobile konvoliuciniais neuroniniais tinklais paremtas modelis, pristatytas „Learning Transferable Architectures for Scalable Image Recognition“ straipsnyje 2018 metais \cite{nasnet}. Pasak autorių, šis modelis yra unikalus skatinamojo mokymosi sprendimu, kuris leidžia optimizuoti architektūros konfigūraciją. Autoriai teigia, jog modelis, ištreniruotas su vienu duomenų rinkiniu, gali gerai adaptuotis ir kitam. 
+\subsubsection{ConvNeXtTiny}
+ConvNeXtTiny konvoliuciniais neuroniniais tinklais paremtas modelis, pristatytas „A ConvNet for the 2020s“ straipsnyje 2022 metais \cite{tiny}. Autoriai teigia, kad šis modelis išsiskiria nuo kitų CNN modelių pritaikydamas invertuotas liekanų struktūras ir skiriamasias konvoliucijas orientuotas į gylį. Tai, pasak autorių, reikšmingai sumažina parametrų skaičių ir pritaiko modelį naudojimui aplikose, kuriose resursai yra riboti.
+\subsection{Duomenys}
+Duomenų apmokymui eksperimentui naudotas atviros prieigos POCUS duomenų rinkinys \cite{born2021accelerating}, kurį naudojo ir kiti apžvelgti autoriai (žr. skyrius \ref{sec:duomenys1}, \ref{sec:duomenys2} ir \ref{sec:duomenys3}). Apmokymui, iš duomenų rinkinio vaizdo įrašų buvo išgauti kadrai, pasinaudojus POCUS rinkinio autorių skriptu. Iš viso apmokymui paruošta 2359 nuotraukų, kurios buvo suskirstytos į 4 klases ir testavimo, validavimo ir treniravimo dalis. Nuotraukų skirstymo statistikos pateiktos lentelėse \ref{tab:train_set}, \ref{tab:val_set}, \ref{tab:test_set}. Galima pastebėti, jog virusinio uždegimo klasė turi labai mažai nuotraukų palyginus su kitomis klasėmis, o didžiają dalį sudaro sveikų plaučių klasė. Taip pat eksperimentui buvo naudojami tik duomenys pateikti pačių POCUS autorių, papildomi vaizdo įrašai/nuotraukos su pateiktais skriptais nebuvo išgaunami, patiems autoriams rekomenduojant taip apsisaugoti nuo autorinių teisių pažeidimų.
+\begin{table}[H]\footnotesize
+  \centering
+  \caption{Eksperimento klasių treniravimo rinkinys}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    Klasė       & Nuotraukų skaičius & Dalis procentais \\ \hline
+    COVID-19       & 392              & 23.76\%                     \\
+    Bakterinis uždegimas   & 337              & 20.42\%                     \\
+    Sveiki plaučiai     & 871              & 52.79\%                     \\
+    Virusinis uždegimas       & 50               & 3.03\%                      \\
+    \textbf{Iš viso} & \textbf{1650} & \textbf{100\%}              \\ \hline
+  \end{tabular}
+  \label{tab:train_set}
+\end{table}
+Treniravimo rinkiniui buvo atliekamos pasukimo iki 40 laipsnių, pločio ir aukščio poslinkis iki 0,2 kartų, pasukimo iki 0,2 kartų, priartinimo iki 0,2 kartų, atsitiktinio apvertimo transformacijos.
+
+\begin{table}[H]\footnotesize
+  \centering
+  \caption{Eksperimento klasių validacijos rinkinys}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    Klasė       & Nuotraukų skaičius & Dalis procentais \\ \hline
+    COVID-19       & 84               & 23.86\%                   \\
+    Bakterinis uždegimas   & 72               & 20.45\%                   \\
+    Sveiki plaučiai     & 186              & 52.84\%                   \\
+    Virusinis uždegimas       & 10               & 2.84\%                    \\ 
+    \textbf{Iš viso} & \textbf{352}  & \textbf{100\%}            \\ \hline
+  \end{tabular}
+  \label{tab:val_set}
+\end{table}
+\begin{table}[H]\footnotesize
+  \centering
+  \caption{Eksperimento klasių testavimo rinkinys}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    Klasė       & Nuotraukų skaičius & Dalis procentais \\ \hline
+    COVID-19        & 84               & 23.53\%                    \\
+    Bakterinis uždegimas   & 73               & 20.45\%                    \\
+    Sveiki plaučiai     & 188              & 52.66\%                    \\
+    Virusinis uždegimas       & 12               & 3.36\%                     \\ 
+    \textbf{Iš viso} & \textbf{357}  & \textbf{100\%}             \\ \hline
+  \end{tabular}
+  \label{tab:test_set}
+\end{table}
+
+\subsection{Apmokymas}
+Apmokymui buvo naudota „Google Collab“ aplinka su nemokamais resursais ir TensorFlow paketai. Kadangi duomenų rinkiniuose klasės yra nesubalansuotos, visiems modeliams panaudota židinio nuostolių funkcija (žr. \ref{eq:focal} formulę), kuri atsižvelgia į klasių disbalansą, ir skirtingi klasių svoriai (1,05 COVID-19, 1,22 bakteriniui uždegimui, 0,47 sveikiems ir 8,25 virusiniam uždegimui) gauti pasinaudojus „sklearn.utils“ paketu. Modeliai buvo mokomi tol, kol 5 epochas iš eilės nemažėja nuostoliai. 
+\begin{equation}\label{eq:focal}
+L(y_{\text{true}}, y_{\text{pred}}) = - y_{\text{true}} \times \alpha \times (1 - y_{\text{pred}})^\gamma \times \log(y_{\text{pred}})
+\end{equation}
+\( y_{\text{true}} \) teisingas spėjimas, \( y_{\text{pred}} \) tikimybė, kuri intervale tarp \(\epsilon\) ir 1, \( \gamma \) fokusavimosi parametras, akcentuojantis sunkiai klasifikuojamus pavyzdžius,  \( \alpha \) mastelio koeficientas, balansuojantis neigiamų ir teigiamų reikšmių svarbą.
+
+\par
+MobileNetV3Small mokinosi \approx10 min. (16 epochų) ir turi \approx1,5 mln parametrų, NASNetMobile \approx4,5 min. (9 epochas) ir turi 5 mln parametrų, ConvNeXtTiny \approx14 min. (21 epochą) ir turi 2,8 mln. parametrų. Mokymo žingsnis \(10^{-4}\), vieno rinkinio (angl. „batch“) dydis 32. 
+\par
+Apmokymo kodas pateiktas „Github“ repozitorijoje ir yra prieinamas peržiūrai - \underline{\href{https://github.com/JustasBan/kursinio-modeliai}{nuoroda į repozitoriją}}
+
+
+\subsection{Rezultatai}
+Modelių testavimo rezultatams analizuoti naudojamos tikslumo, precizijos, atkūrimo, specifikumo ir f1 metrikos. Metrikos pateiktos \ref{tab:eksper_tab} lentelėje ir pagal testavimo rezulatus sudarytos klasifikavimo lentelėse pateiktose \ref{img:eksper_le} paveikslėlyje.
+\par
+Eksperimente ConvNeXtTiny turi geriausią tikslumą, specifiškumą ir F1, NASNetMobile turi mažiausią tikslumą ir F1, MobileNetV3Small turi didžiausią specifikškumą ir mažai atsilieka nuo ConvNeXtTiny tikslumo ir F1 metrikomis. Galima pastebėti iš klasifikacijos lentelių, jog NASNetMobile blogiausiai sekėsi generalizuotis iš mažai duomenų - modeliui ypatingai trūksta duomenų virusiniam uždegimui teisingai klasifikuoti. Taip pat galima pastebėti, jog MobileNetV3Small, turėdamas mažiausią parametrų skaičių (\approx2 kartus mažesnį už ConvNeXtTiny ir \approx3 kartus mažesnį už NASNetMobile) yra labai arti geriausių metrikų modelio. Sunku yra vertinti virusinio uždegimo diagnozę, nes testavimo rinkinyje buvo tik 12 nuotraukų ir jos visos tik iš 3 vaizdo įrašų - tai nėra patikimi rezultatai, nes duomenų palyginus su kitomis klasėmis yra mažai. Vis dėlto, ConvNeXtTiny ir MobileNetV3Small efektyviai sugebėjo išmokti visų klasių požymius su pateiktais svoriais ir generalizuotis pateiktiems duomenims. 
+
+\begin{table}[H]\footnotesize
+  \centering
+\caption{Visų modelių eksperimentų testavimo metrikos}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Modelis             & Tikslumas & Precizija & Specifiškumas & F1  \\ \hline
+MobileNetV3Small    & 0,91      & 0,87      & 0,97          & 0,92\\
+NASNetMobile        & 0,73      & 0,72      & 0,9          & 0,64 \\
+ConvNeXtTiny        & 0,94      & 0,95      & 0,97           & 0,94 \\
+\hline
+  \end{tabular}
+  \label{tab:eksper_tab}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{img/eksperimentas.png}
+    \caption{Visų modelių klasifikavimo lentelės}
+    \label{img:eksper_le}
+\end{figure}
 \sectionnonum{Rezultatai ir išvados}
-Šiame darbe apžvelgti giliojo mokymosi sprendimai, galintys medikams padėti nustatyti ligas iš plaučių echoskopijos nuotraukų ir vaizdo įrašų.
+Šiame darbe apžvelgti giliojo mokymosi sprendimai, galintys medikams padėti nustatyti ligas iš plaučių echoskopijos nuotraukų ir vaizdo įrašų, ir atliktas eksperimentas, kuriame adaptuoti 3 modeliai 3 ligoms ar sveikai diagnozei nustatyti.
 \par
-Lyginant autorių architektūras, verta paminėti, jog visų straipsnių autoriai tobulino jau sukurtas architektūras šiam uždaviniui spręsti. Transformerių neuroninis tinklas buvo patobulintas su „Linformer“ enkoderiu, konvoliuciniams neuroniniams tinklams buvo pritaikytas neapibrėžtasis sutelkimas, kitas sprendimas konvoliuciniams ir liekanų neuroniniams tinklams pritaikytas įterpiant ilgos trumpalaikės atminties sluoksnį.
+Lyginant autorių architektūras, verta paminėti, jog visų straipsnių autoriai tobulino jau sukurtas architektūras šiam uždaviniui spręsti. Transformerių neuroninis tinklas buvo patobulintas su „Linformer“ enkoderiu, konvoliuciniams neuroniniams tinklams buvo pritaikytas neapibrėžtasis sutelkimas, kitas sprendimas konvoliuciniams ir liekanų neuroniniams tinklams pritaikytas įterpiant ilgos trumpalaikės atminties sluoksnį. Eksperimente buvo adaptuoti jau ištreniruoti konvoliucinių neuroninių tinklų modeliai.
 \par
-Lyginant duomenų rinkinio sprendimus pastebėta, kad visų 3 straipsnių autoriai naudojo tą patį atviros prieigos POCUS duomenų rinkinį ir išgavo kadrus iš vaizdo įrašų, kad treniruotų modelius. LSTM tinklų autoriai naudojosi 4 skirtingomis kadrų išgavimo iš vaizdo įrašų konfigūracijomis, „Fuzzy pooling“ tinklų autoriai naudojo metodus sumažinti triukšmui nuotraukose, o transformerių tinklų autoriai standartizavo visas nuotraukas ir naudojo parametrų balansavimo mechanizmą, kad mažiau nuotraukų turinčios klasės turėtų didesnį svorį. Verta paminėti, jog POCUS duomenų rinkinys yra daug mažesnis už kitus įprastus rinkinius, kaip „Imagenet“, ir jame daugiausiai yra bakterinio uždegimo, COVID-19 ir sveikų plaučių klasių nuotraukų, o kitų ligų duomenų jame trūksta.
+Taip pat verta paminėti, jog du autoriai kūrė sprendimus nustatyti ligai iš nuotraukos, o vienas autorius rėmėsi vaizdo įrašais. Eksprerimente adaptuoti modeliai ligos nustatymui iš nuotraukos.
 \par
-Lyginant autorių modelių apmokymus, pastebėta kad visi autoriai apmokė po kelis modelius - transformerių neuroninių tinklų autoriai apmokė 3 dvejų klasių ir 1 daugelių klasių, neapibrėžtojo sutelkimo sprendimo autoriai treniravo 6, o LSTM autoriai 68 modelius. Verta paminėti, jog LSTM autoriai naudojo specialius įrankius optimizuoti hiperparametrus tokiam dideliam kiekiui modelių.
+Lyginant duomenų rinkinio sprendimus pastebėta, kad visų 3 straipsnių autoriai naudojo tą patį atviros prieigos POCUS duomenų rinkinį \cite{born2021accelerating} ir išgavo kadrus iš vaizdo įrašų, kad treniruotų modelius. LSTM tinklų autoriai naudojosi 4 skirtingomis kadrų išgavimo iš vaizdo įrašų konfigūracijomis, „Fuzzy pooling“ tinklų autoriai naudojo metodus sumažinti triukšmui nuotraukose, o transformerių tinklų autoriai standartizavo visas nuotraukas ir naudojo parametrų balansavimo mechanizmą, kad mažiau nuotraukų turinčios klasės turėtų didesnį svorį. Verta paminėti, jog POCUS duomenų rinkinys yra daug mažesnis už kitus įprastus rinkinius, kaip „Imagenet“, ir jame daugiausiai yra bakterinio uždegimo, COVID-19 ir sveikų plaučių klasių nuotraukų, o kitų ligų duomenų jame trūksta. Eksperimente naudotas tas pats duomenų rinkinys, didesnį svorį mokymesi suteikiant mažesnio nuotraukų kiekio klasėms.
 \par
-Autorių sukurtų modelių metrikos ir parametrai palyginti lentelėje \ref{tab:palyg}. Pastebėta, jog visų autorių pateikti modeliai turi aukštas metrikas - visos yra intervale tarp 0,8 ir 0,97. Pastebima, kad visi modeliai klasifikavo tik 3 tas pačias diagnozes - COVID-19, bakterinio uždegimo ir sveikų plaučių. LSTM autoriai pristatė plačiau tik geriausiai pasirodusius modelius. Pirmi trys „POCFormer“ modeliai klasifikuoja tik dvi ligas, o likusieji modeliai klasifikuoja 3 diagnozes, todėl auštesnės metrikos gali būti dėl paprastesnio klasifikavimo. Galime pastebėti, jog geriausią tikslumą turi Xception su visais neapibrėžto sutelkimo sluoksniais modelis, tačiau taip pat jis turi ir daugiausia parametrų, kas gali kenkti naudojimui mobiliems echoskopijos įrenginiams su limituota atmintimi. Aukščiausią preciziją turi „POCFormer“ uždegimo ir sveikų plaučių ir Xception-LSTM modeliai, aukščiausią specifiškumą turi Xception-LSTM ir „POCFormer“ COVID-19 ir sveikų plaučių, aukščiausią F1 turi „POCFormer“ daugelio klasių modelis. Mažiausia parametrų turi POCOVID-Net-3-LSTM modelis ir jis išlaiko puikias metrikas. Pastebima, kad neapibrėžto sutelkimo sprendimo autoriai pateikė kitokias metrikas savo modeliams, todėl sunku palyginti su kitų autorių modeliais kitų metrikų atžvilgiu. 
+Lyginant autorių modelių apmokymus, pastebėta kad visi autoriai apmokė po kelis modelius - transformerių neuroninių tinklų autoriai apmokė 3 dvejų klasių ir 1 daugelių klasių, neapibrėžtojo sutelkimo sprendimo autoriai treniravo 6, o LSTM autoriai 68 modelius. Verta paminėti, jog LSTM autoriai naudojo specialius įrankius optimizuoti hiperparametrus tokiam dideliam kiekiui modelių. Eksperimente adaptuoti 3 modeliai.
+\par
+Autorių sukurtų modelių metrikos ir parametrai palyginti lentelėje \ref{tab:palyg}. Pastebėta, jog visų autorių pateikti modeliai turi aukštas metrikas - visos yra intervale tarp 0,8 ir 0,97 ir du adaptuoti modeliai iš eksperimento taip pat priklauso šiam intervalui. Pastebima, kad straipsnių autoriai modeliai klasifikavo dažniausiai 3 tas pačias diagnozes - COVID-19, bakterinio uždegimo ir sveikų plaučių. LSTM autoriai pristatė plačiau tik geriausiai pasirodusius modelius. Pirmi trys „POCFormer“ modeliai klasifikuoja tik dvi ligas, o likusieji modeliai klasifikuoja 3 diagnozes, todėl aukštesnės metrikos gali būti dėl paprastesnio klasifikavimo. Adaptuoti modeliai iš ekperimento diagnozuoja papildomai virusinį uždegimą. Galime pastebėti, jog geriausią tikslumą turi Xception su visais neapibrėžto sutelkimo sluoksniais modelis, tačiau taip pat jis turi ir daugiausia parametrų, kas gali kenkti naudojimui mobiliems echoskopijos įrenginiams su limituota atmintimi. Aukščiausią preciziją turi „POCFormer“ uždegimo ir sveikų plaučių, Xception-LSTM ir ConvNeXtTiny modeliai. Aukščiausią specifiškumą turi Xception-LSTM, „POCFormer“ COVID-19 ir sveikų plaučių, MobileNetV3Small ir ConvNeXtTiny modeliai. Aukščiausią F1 turi „POCFormer“ daugelio klasių ir ConvNeXtTiny modeliai. Mažiausia parametrų turi POCOVID-Net-3-LSTM modelis ir jis išlaiko palyginus su kitais modeliais puikias metrikas. Pastebima, kad neapibrėžto sutelkimo sprendimo autoriai pateikė kitokias metrikas savo modeliams, todėl sunku palyginti su kitų autorių modeliais precizijos, specifiškumo ir F1 metrikų atžvilgiu. 
 \begin{table}[H]\footnotesize
   \centering
 \caption{Modelių palyginimas}
-\begin{tabular}{|p{6cm}|c|c|c|c|c|c|c|}
+\begin{tabular}{|p{2.65cm}|p{4cm}|c|c|c|c|c|c|c|}
 \hline
-Modelis & Tikslumas & Precizija & Specifiškumas & F1 & Parametrai \\ \hline
-„POCFormer“ COVID-19 ir sveikų plaučių  & 0,91 & 0,87 & 0,97 & 0,92 & 2,8 mln. \\
-„POCFormer“ COVID-19 ir uždegimo  & 0,91 & 0,93 & 0,88 & 0,93 & 2,8 mln. \\
-„POCFormer“ uždegimo ir sveikų plaučių  & 0,91 & 0,95 & 0,8 & 0,93 & 2,8 mln. \\
-„POCFormer“ daugelio klasių  & 0,94 & 0,94 & 0,96 & 0,94 & 6,9 mln. \\
-Xception su paskutiniu neapibrėžto sutelkimo sluoksniu  & 0,95 & - & - & - & - \\
-Xception su visais neapibrėžto sutelkimo sluoksniais  & 0,97 &-  & - &  -& 20,9 mln. \\
-Xception-LSTM  & 0,93 & 0,94  & 0,97 &  0,93 & 6,8 mln \\
-NASNetLarge-LSTM  & 0,92 & 0,92  & 0,96 &  0,92 & 20,8 mln \\
-DenseNet121-LSTM  & 0,92 & 0,92  & 0,96 &  0,92 & 1,2 mln \\
-POCOVID-Net-3-LSTM  & 0,92 & 0,92  & 0,96 &  0,91 & 0,8 mln \\
-DenseNet201-LSTM  & 0,92 & 0,91  & 0,96 &  0,92 & 12,6 mln \\
+Modelis & Klasės & Tikslumas & Precizija & Specifiškumas & F1 & Parametrai \\ \hline
+„POCFormer“ & COVID-19, sveikų plaučių  & 0,91 & 0,87 & 0,97 & 0,92 & 2,8 mln. \\\hline
+„POCFormer“ &COVID-19, uždegimo  & 0,91 & 0,93 & 0,88 & 0,93 & 2,8 mln. \\\hline
+„POCFormer“ &Uždegimo, sveikų plaučių  & 0,91 & 0,95 & 0,8 & 0,93 & 2,8 mln. \\\hline
+„POCFormer“ &COVID-19, bakterinio uždegimo, sveikų plaučių  & 0,94 & 0,94 & 0,96 & 0,94 & 6,9 mln. \\\hline
+Xception su paskutiniu neapibrėžto sutelkimo sluoksniu &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,95 & - & - & - & - \\\hline
+Xception su visais neapibrėžto sutelkimo sluoksniais  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,97 &-  & - &  -& 20,9 mln. \\\hline
+Xception-LSTM  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,93 & 0,94  & 0,97 &  0,93 & 6,8 mln \\\hline
+NASNetLarge-LSTM  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,92 & 0,92  & 0,96 &  0,92 & 20,8 mln \\\hline
+DenseNet121-LSTM  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,92 & 0,92  & 0,96 &  0,92 & 1,2 mln \\\hline
+POCOVID-Net-3-LSTM  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,92 & 0,92  & 0,96 &  0,91 & 0,8 mln \\\hline
+DenseNet201-LSTM  &COVID-19, bakterinio uždegimo ir sveikų plaučių  & 0,92 & 0,91  & 0,96 &  0,92 & 12,6 mln \\\hline
+MobileNetV3- Small  (adaptuotas)  &COVID-19, bakterinio uždegimo, virusinio uždegimo ir sveikų plaučių  & 0,91 & 0,87  & 0,97 &  0,92 & 1,5 mln \\\hline
+NASNetMobile  (adaptuotas) &COVID-19, bakterinio uždegimo, virusinio uždegimo ir sveikų plaučių  & 0,73 & 0,72  & 0,9 &  0,64 & 5 mln \\\hline
+ConvNeXtTiny  (adaptuotas)&COVID-19, bakterinio uždegimo, virusinio uždegimo ir sveikų plaučių  & 0,94 & 0,95  & 0,97 &  0,94 & 2,8 mln \\
 \hline
   \end{tabular}
   \label{tab:palyg}
 \end{table}
 \par
-Visų 3 straipsnių autoriai pateikė modelius, kurie gali tiksliai atlikti 2 ligų ir sveikų plaučių diagnozę, taip padedant medikams, kuriems sunku yra išmokti interpretuoti diagnozę. Pastebėta, kad šie modeliai nebuvo testuoti echoskopijos įrenginiuose ir tai nereiškia kad gali būti naudojami praktikoje dėl kompiuterinių resursų apribojimų. Taip pat, autoriai tyrė tik 2 ligų nustatymą dėl POCUS duomenų rinkinio apribojimų - jame trūksta kitų ligų, kaip virusinis uždegimas, echoskopijos nuotraukų ar vaizdo įrašų. Tai gali būti nepatrauklu medikams, nes plaučių echoskopijos artefaktai gali padėti diagnozuoti daugiau negu 2 ligas.  
+Visų 3 straipsnių autoriai pateikė modelius, kurie gali tiksliai atlikti 2 ligų ir sveikų plaučių diagnozę, o eksperimente buvo adaptuoti modeliai nustatyti 3 ligų ir sveikų plaučių diagnozę, taip padedant medikams, kuriems sunku yra išmokti interpretuoti diagnozę. Pastebėta, kad šie modeliai nebuvo testuoti echoskopijos įrenginiuose ir tai nereiškia kad gali būti naudojami praktikoje dėl kompiuterinių resursų apribojimų. Taip pat, autoriai tyrė tik 2 ligų nustatymą dėl POCUS duomenų rinkinio apribojimų - jame palyginus daug mažiau kitų ligų echoskopijos nuotraukų ar vaizdo įrašų, tačiau išgauti kokybiškus duomenis sunku ir praktikoje ir dėl asmens privatumo. Modeliai identifikuojantys tik 2-3 ligas gali būti nepatrauklūs medikams, nes plaučių echoskopijos artefaktai gali padėti diagnozuoti daugiau negu 2 ligas.  
 % Išvadų ir rekomendacijų dalyje išdėstomi pagrindiniai darbo rezultatai (kažkas
 % išanalizuota, kažkas sukurta, kažkas įdiegta), pateikiamos išvados (daromi
 % nagrinėtų problemų sprendimo metodų palyginimai, siūlomos rekomendacijos,
